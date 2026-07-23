@@ -6,19 +6,20 @@
  * @since       09/04/2026
  * @group       Services
  */
-public with sharing class GetWorkTypeForTerritory {
+@SuppressWarnings('PMD.AvoidGlobalModifier')
+global with sharing class GetWorkTypeForTerritory {
 
-    public class Input {
+    global class Input {
         @InvocableVariable(required=true label='Service Territory ID')
-        public String serviceTerritoryId;
+        global String serviceTerritoryId;
 
         @InvocableVariable(required=true label='Work Type Group ID')
-        public String workTypeGroupId;
+        global String workTypeGroupId;
     }
 
-    public class Output {
+    global class Output {
         @InvocableVariable(label='Work Type')
-        public WorkType workType;
+        global WorkType workType;
     }
 
     @InvocableMethod(
@@ -26,7 +27,7 @@ public with sharing class GetWorkTypeForTerritory {
         description='Returns the Work Type record for a given Service Territory and Work Type Group'
         iconName='slds:standard:work_type'
     )
-    public static Output[] getWorkType(Input[] inputs) {
+    global static Output[] getWorkType(Input[] inputs) {
         Output out = new Output();
 
         if (inputs == null || inputs.size() == 0) {

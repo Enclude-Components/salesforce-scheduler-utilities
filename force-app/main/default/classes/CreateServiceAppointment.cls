@@ -6,22 +6,23 @@
  * @since       01/2026
  * @group       Services
  */
-public with sharing class CreateServiceAppointment {
+@SuppressWarnings('PMD.AvoidGlobalModifier')
+global with sharing class CreateServiceAppointment {
 
-    public class Input {
+    global class Input {
         @InvocableVariable(required=true label='Service Appointment')
-        public ServiceAppointment serviceAppointment;
+        global ServiceAppointment serviceAppointment;
 
         @InvocableVariable(required=true label='Primary Resource')
-        public ServiceResource primaryResource;
+        global ServiceResource primaryResource;
 
         @InvocableVariable(label='Required Resources')
-        public ServiceResource[] requiredResources;
+        global ServiceResource[] requiredResources;
     }
 
-    public class Output {
+    global class Output {
         @InvocableVariable
-        public Id serviceAppointmentId;
+        global Id serviceAppointmentId;
     }
 
     /**
@@ -33,7 +34,7 @@ public with sharing class CreateServiceAppointment {
         label='Create Service Appointment'
         description='Creates a Service Appointment and assigns service resources to it'
     )
-    public static Output[] createAppointment(Input[] inputs) {
+    global static Output[] createAppointment(Input[] inputs) {
         if (inputs == null || inputs.size() != 1) {
             throw new IllegalArgumentException('This action supports a single input only.');
         }

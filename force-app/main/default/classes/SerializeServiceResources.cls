@@ -6,19 +6,20 @@
  * @since       01/2026
  * @group       Services
  */
-public with sharing class SerializeServiceResources {
+@SuppressWarnings('PMD.AvoidGlobalModifier')
+global with sharing class SerializeServiceResources {
 
-    public class Input {
+    global class Input {
         @InvocableVariable(required=true label='Primary Resource')
-        public ServiceResource primaryResource;
+        global ServiceResource primaryResource;
 
         @InvocableVariable(label='Required Resources')
-        public ServiceResource[] requiredResources;
+        global ServiceResource[] requiredResources;
     }
 
-    public class Output {
+    global class Output {
         @InvocableVariable
-        public String serializedResources;
+        global String serializedResources;
     }
 
     /**
@@ -30,7 +31,7 @@ public with sharing class SerializeServiceResources {
         label='Serialize Service Resources'
         description='Serializes service resources into JSON for the appointment booking component'
     )
-    public static Output[] serialize(Input[] inputs) {
+    global static Output[] serialize(Input[] inputs) {
         Input params = inputs[0];
 
         List<Map<String, Object>> allResources = new List<Map<String, Object>>();

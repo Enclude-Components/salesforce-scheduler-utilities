@@ -11,14 +11,15 @@
  * @since       24/03/2026
  * @group       Scheduling
  */
-public without sharing class AppointmentCandidatesInvocable {
+@SuppressWarnings('PMD.AvoidGlobalModifier')
+global without sharing class AppointmentCandidatesInvocable {
     /**
      * @description Invocable method that fetches available appointment slots.
      * @param requests List of Request objects
      * @return List of Result objects, each containing a collection of AppointmentSlot records
      */
     @InvocableMethod(label='Get Appointment Candidates' category='Scheduling' iconName='slds:standard:event')
-    public static Result[] execute(Request[] requests) {
+    global static Result[] execute(Request[] requests) {
         Set<Id> saIds = new Set<Id>();
         for (Request request : requests) {
             saIds.add(request.serviceAppointmentId);
@@ -89,17 +90,17 @@ public without sharing class AppointmentCandidatesInvocable {
     /**
      * @description Input parameters for the invocable method.
      */
-    public class Request {
+    global class Request {
         @InvocableVariable(label='Service Appointment ID' required=true)
-        public String serviceAppointmentId;
+        global String serviceAppointmentId;
     }
 
     /**
      * @description Output for the invocable method.
      *              Contains a collection of available appointment slots.
      */
-    public class Result {
+    global class Result {
         @InvocableVariable(label='Appointment Slots')
-        public AppointmentSlot[] slots = new List<AppointmentSlot>();
+        global AppointmentSlot[] slots = new List<AppointmentSlot>();
     }
 }

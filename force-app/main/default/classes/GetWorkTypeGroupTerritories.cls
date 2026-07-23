@@ -5,16 +5,17 @@
  * @since       09/04/2026
  * @group       Services
  */
-public with sharing class GetWorkTypeGroupTerritories {
+@SuppressWarnings('PMD.AvoidGlobalModifier')
+global with sharing class GetWorkTypeGroupTerritories {
 
-    public class Input {
+    global class Input {
         @InvocableVariable(required=true label='Work Type Group ID')
-        public String workTypeGroupId;
+        global String workTypeGroupId;
     }
 
-    public class Output {
+    global class Output {
         @InvocableVariable
-        public ServiceTerritory[] territories = new ServiceTerritory[]{};
+        global ServiceTerritory[] territories = new ServiceTerritory[]{};
     }
 
     /**
@@ -27,7 +28,7 @@ public with sharing class GetWorkTypeGroupTerritories {
         description='Returns distinct Service Territories associated with a given Work Type Group'
         iconName='slds:standard:location'
     )
-    public static Output[] getTerritories(Input[] inputs) {
+    global static Output[] getTerritories(Input[] inputs) {
         Output out = new Output();
 
         if (inputs == null || inputs.size() == 0) {

@@ -6,18 +6,19 @@
  * @since       24/03/2026
  * @group       Scheduling
  */
-public class AppointmentSlot {
+@SuppressWarnings('PMD.AvoidGlobalModifier')
+global class AppointmentSlot {
     @AuraEnabled @InvocableVariable(label='Start Time')
-    public Datetime startTime;
+    global Datetime startTime;
 
     @AuraEnabled @InvocableVariable(label='End Time')
-    public Datetime endTime;
+    global Datetime endTime;
 
     @AuraEnabled @InvocableVariable(label='Territory ID')
-    public String territoryId;
+    global String territoryId;
 
     @AuraEnabled @InvocableVariable(label='Remaining Appointments')
-    public Integer remainingAppointments;
+    global Integer remainingAppointments;
 
     /**
      * @description Deserializes the JSON response from getAppointmentSlots into a list of AppointmentSlot records.

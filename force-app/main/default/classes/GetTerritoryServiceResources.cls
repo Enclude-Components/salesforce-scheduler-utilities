@@ -6,23 +6,24 @@
  * @since       01/2026
  * @group       Services
  */
-public with sharing class GetTerritoryServiceResources {
+@SuppressWarnings('PMD.AvoidGlobalModifier')
+global with sharing class GetTerritoryServiceResources {
     private static final Set<String> RESOURCE_TYPES = new Set<String>{ 'T', 'S' };
 
-    public class Input {
+    global class Input {
         @InvocableVariable(required=true label='Service Territory ID')
-        public String serviceTerritoryId;
+        global String serviceTerritoryId;
 
         @InvocableVariable(required=true label='Work Type Group ID')
-        public String workTypeGroupId;
+        global String workTypeGroupId;
     }
 
-    public class Output {
+    global class Output {
         @InvocableVariable
-        public ServiceResource[] userResources = new ServiceResource[]{};
+        global ServiceResource[] userResources = new ServiceResource[]{};
 
         @InvocableVariable
-        public ServiceResource[] assetResources = new ServiceResource[]{};
+        global ServiceResource[] assetResources = new ServiceResource[]{};
     }
 
     /**
@@ -34,7 +35,7 @@ public with sharing class GetTerritoryServiceResources {
         label='Get Service Resources for Territory'
         description='Returns active service resources for a given territory'
     )
-    public static Output[] getResources(Input[] inputs) {
+    global static Output[] getResources(Input[] inputs) {
         Output out = new Output();
 
         if (inputs == null || inputs.size() == 0) {
