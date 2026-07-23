@@ -1,0 +1,38 @@
+{
+  "orgName": "salesforce-scheduler-utilities - Release Test Org",
+  "edition": "Enterprise",
+  "features": [
+    "LightningScheduler",
+    "AssetScheduling:10",
+    "ForceComPlatform"
+  ],
+  "settings": {
+    "mapsAndLocationSettings": {
+      "enableMapsAndLocation": true,
+      "enableAddressAutoComplete": true
+    },
+    "lightningExperienceSettings": {
+      "enableS1DesktopEnabled": true
+    },
+    "chatterSettings": {
+      "enableChatter": true
+    },
+    "userManagementSettings": {
+      "enableNewProfileUI": true
+    },
+    "securitySettings": {
+      "enableAdminLoginAsAnyUser": true,
+      "sessionSettings": {
+        "forceRelogin": false
+      }
+    },
+    "languageSettings": {
+      "enableTranslationWorkbench": true
+    },
+    "industriesSettings": {
+      "enableEventManagementOrgPref": true,
+      "enableBlockResourceAvailabilityOrgPref": true,
+      "enableMultiResourceOrgPref": true
+    }
+  }
+}
